@@ -1,0 +1,21 @@
+{
+  "name": "x402-payment-skill",
+  "version": "1.5.8",
+  "description": "x402 payment skill for TRON and EVM",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx src/x402_invoke.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@bankofai/agent-wallet": "^2.4.0",
+    "@bankofai/x402": "0.5.9",
+    "tronweb": "^6.0.0"
+  }
+}

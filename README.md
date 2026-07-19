@@ -10,48 +10,42 @@ Ce dépôt contient l'intégralité des skills disponibles dans l'écosystème Z
 
 ```
 zcode-skills/
-├── skills/                         # 1 696 skills ZCode (écosystème principal)
+├── skills/                         # 2 540 skills ZCode (écosystème principal)
 │   ├── performing-*/               # 172 skills — tests d'intrusion, audits...
-│   ├── implementing-*/             # 168 skills — implémentation de sécurité...
-│   ├── detecting-*/                #  96 skills — détection de menaces...
-│   ├── analyzing-*/                #  76 skills — analyse forensic/malware...
-│   ├── hunting-*/                  #  37 skills — threat hunting...
-│   ├── building-*/                 #  36 skills — construction d'infrastructure...
-│   ├── exploiting-*/               #  34 skills — exploitation de vulnérabilités...
+│   ├── implementing-*/             # 168 skills — implémentation de contrôles de sécurité...
+│   ├── detecting-*/                #  96 skills — détection de menaces et techniques...
+│   ├── analyzing-*/                #  76 skills — analyse forensic, malware, logs...
+│   ├── hunting-*/                  #  37 skills — threat hunting actif...
+│   ├── building-*/                 #  36 skills — construction d'infrastructures...
+│   ├── exploiting-*/                #  34 skills — exploitation de vulnérabilités...
 │   ├── testing-*/                  #  24 skills — tests de sécurité applicative...
 │   ├── google-*/                   #  21 skills — GKE, Google Cloud, Workspace...
-│   ├── conducting-*/               #  21 skills — conduite d'engagements red team...
-│   ├── configuring-*/              #  18 skills — configuration d'outils de sécurité...
-│   ├── agent-*/                    #  18 skills — agents, orchestration, plateforme...
+│   ├── conducting-*/               #  21 skills — conduite d'engagements...
+│   ├── configuring-*/             #  18 skills — configuration d'outils...
+│   ├── agent-*/                    #  18 skills — agents, orchestration...
 │   ├── gke-*/                      #  17 skills — Google Kubernetes Engine...
 │   ├── securing-*/                 #  13 skills — sécurisation d'infrastructures...
 │   ├── auditing-*/                 #  12 skills — audit de configurations...
 │   ├── deploying-*/                #  11 skills — déploiement de solutions...
-│   └── ... (250+ catégories uniques)
+│   └── ... (plus de 250 catégories uniques)
 │
-└── agent-skills/                   # 21 skills (environnement agent dédié)
-    ├── agent-reach/
-    ├── agents-sdk/
-    ├── cloudflare/
-    ├── cloudflare-email-service/
-    ├── cloudflare-one/
-    ├── cloudflare-one-migrations/
-    ├── durable-objects/
-    ├── gitnexus-cli/
-    ├── gitnexus-debugging/
-    ├── gitnexus-exploring/
-    ├── gitnexus-guide/
-    ├── gitnexus-impact-analysis/
-    ├── gitnexus-pdg-query/
-    ├── gitnexus-pr-review/
-    ├── gitnexus-refactoring/
-    ├── gitnexus-taint-analysis/
-    ├── sandbox-sdk/
-    ├── turnstile-spin/
-    ├── web-perf/
-    ├── workers-best-practices/
-    └── wrangler/
+└── sub-agents/                     # Systèmes d'agents spécialisés
+    ├── hermes/                     # Architecture 3 couches (Stratège + Spécialistes → Travailleurs)
+    ├── agency-agents/               # Agents spécialisés par domaine (24+ domaines)
+    └── agent-reach/                # Module Python avec CLI
 ```
+
+---
+
+## 🤖 Sous-Agents — Systèmes d'Expertise
+
+Le dépôt inclut trois architectures de sous-agents distinctes pour étendre les capacités des agents ZCode :
+
+| Système | Fichiers | Description |
+|---------|----------|-------------|
+| **Hermes** | ~16 | Architecture orchestrée : un `strategist-agent` coordonne jusqu'à 14 agents spécialistes qui déploient des travailleurs autonomes. |
+| **Agency-Agents** | 291 | Une vaste bibliothèque d'agents spécialisés couvrant plus de 24 domaines (DevOps, Sécurité, Data, Business, etc.). |
+| **Agent-Reach** | 119 | Un module Python robuste offrant une interface de ligne de commande (CLI) pour l'interaction avec l'écosystème. |
 
 ---
 
@@ -78,7 +72,7 @@ zcode-skills/
 | 17 | `gitnexus-*` | 9 | GitNexus tools |
 | 18 | `hermes-*` | 8 | Hermes agent platform |
 | 19 | `figma-*` | 8 | Design & Figma |
-| 20 | `ai-*` / `data-*` | 8+8 | AI/ML & Data |
+| 20 | `ai-*` / `data-*` | 16 | AI/ML & Data |
 
 ### 🌐 Domaines couverts
 
@@ -131,27 +125,7 @@ Ou directement depuis un agent compatible via l'outil `Skill` :
 - **Dépôt GitHub** : `https://github.com/mwanaitech/zcode-skills` (privé)
 - **Plateforme ZCode** : [zcode.ai](https://zcode.ai)
 - **Créé le** : 19 juillet 2026
-- **Dernière mise à jour** : 19 juillet 2026 — 1 717 skills (1696 + 21)
-
----
-
-## 📜 Licence
-
-Collection privée — Usage interne. Chaque skill peut avoir ses propres conditions d'utilisation.
-
----
-
-## 🇬🇧 English Summary
-
-This repository is a complete backup and reference snapshot of all ZCode skills. It contains **1,717 skills** organized across two directories:
-- **`skills/`** — 1,696 skills from the main ZCode ecosystem
-- **`agent-skills/`** — 21 skills from the dedicated agent environment
-
-Skills are grouped by functional prefixes (e.g., `performing-*`, `implementing-*`, `detecting-*`) and cover domains including cybersecurity, cloud/DevOps, AI/ML, development, design, finance, marketing, legal/compliance, education, and geo-spatial.
-
-To use a skill: `/skill-name` with a ZCode-compatible agent.
-
-*Repository: `https://github.com/mwanaitech/zcode-skills` (private)*
+- **Dernière mise à jour** : 19 juillet 2026 — 2 540 skills
 
 ---
 

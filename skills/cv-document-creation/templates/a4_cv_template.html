@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — {{FULL_NAME}}</title>
+<style>
+@page { size: A4 portrait; margin: 0; }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0; padding: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #e5e5e5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color: #1f2937;
+}
+
+.page {
+  width: 210mm; height: 297mm; margin: 0 auto;
+  background: #fff; display: flex; overflow: hidden;
+  box-shadow: 0 0 12px rgba(0,0,0,0.18);
+}
+
+/* Colonne gauche */
+.sidebar {
+  width: 72mm;
+  background: #0b1021; color: #f3f4f6;
+  padding: 9mm 5mm 9mm 5mm;
+  display: flex; flex-direction: column; gap: 3.5mm;
+}
+
+.photo {
+  width: 30mm; height: 30mm; border-radius: 50%;
+  border: 2.5px solid #c9a227; margin: 0 auto 2mm auto;
+  background: #111a30; display: flex; align-items: center; justify-content: center;
+  font-size: 13pt; font-weight: 700; color: #c9a227;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+.sidebar-section { margin-bottom: 1mm; }
+
+.sidebar-title {
+  text-transform: uppercase; font-size: 8.5pt;
+  letter-spacing: 1.2px; color: #c9a227;
+  border-bottom: 0.8px solid #c9a227; padding-bottom: 1.2mm;
+  margin: 0 0 2.2mm 0; font-weight: 600;
+}
+
+.sidebar ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 8.5pt; line-height: 1.5;
+}
+
+.sidebar li { margin-bottom: 0.8mm; }
+
+.contact-row {
+  display: flex; align-items: center; gap: 2mm;
+  margin-bottom: 1.6mm; font-size: 8.5pt; word-break: break-word;
+}
+
+.contact-row svg {
+  flex-shrink: 0;
+  width: 11px; height: 11px;
+}
+
+.contact-row a { color: #f3f4f6; text-decoration: none; }
+
+.skill-group { margin-bottom: 2mm; }
+
+.skill-group strong {
+  color: #e5e7eb; font-size: 8.5pt;
+  display: block; margin-bottom: 0.6mm;
+}
+
+.skill-group ul { font-size: 8.5pt; line-height: 1.45; }
+
+/* Colonne droite */
+.content {
+  flex: 1; padding: 9mm 7mm 9mm 7mm;
+  display: flex; flex-direction: column;
+}
+
+.main-header {
+  margin-bottom: 4mm; padding-bottom: 3mm;
+  border-bottom: 1.5px solid #e5e7eb;
+}
+
+.main-header h1 {
+  font-size: 18pt; font-weight: 700; color: #0b1021;
+  margin: 0; letter-spacing: 0.5px;
+  text-transform: uppercase; line-height: 1.15;
+}
+
+.main-header .title {
+  font-size: 10pt; color: #c9a227;
+  margin: 1.5mm 0 0 0; font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.section-title {
+  text-transform: uppercase; font-size: 10.5pt;
+  color: #0b1021; border-left: 2.5mm solid #c9a227;
+  padding-left: 2.5mm; margin: 4.5mm 0 2.8mm 0;
+  font-weight: 700; letter-spacing: 0.4px;
+}
+
+.profile-text {
+  font-size: 9.5pt; line-height: 1.45;
+  margin: 0 0 2mm 0; text-align: justify; color: #374151;
+}
+
+.job { margin-bottom: 3.2mm; }
+
+.job-header {
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 2mm;
+}
+
+.job-title {
+  font-size: 9.5pt; font-weight: 700;
+  color: #0b1021; margin: 0; line-height: 1.2;
+}
+
+.job-date {
+  font-size: 8pt; color: #6b7280;
+  font-weight: 500; white-space: nowrap; flex-shrink: 0;
+}
+
+.job-meta {
+  font-size: 8.5pt; color: #4b5563;
+  margin: 0.4mm 0 0.8mm 0; font-style: italic;
+}
+
+.job-desc {
+  font-size: 9pt; line-height: 1.4;
+  margin: 0; color: #374151; text-align: justify;
+}
+
+.formation-item { margin-bottom: 1.8mm; }
+
+.formation-title {
+  font-size: 9.5pt; font-weight: 700;
+  color: #0b1021; margin: 0;
+}
+
+.formation-meta {
+  font-size: 8.5pt; color: #4b5563;
+  margin: 0.3mm 0 0 0;
+}
+
+@media print {
+  body { background: none; }
+  .page { box-shadow: none; margin: 0; width: 100%; height: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div class="photo">{{INITIALS}}</div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Contact</div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>{{PHONE}}</span>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>{{LOCATION}}</span>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="{{LINKEDIN_URL}}" target="_blank">{{LINKEDIN_TEXT}}</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <a href="{{PORTFOLIO_URL}}" target="_blank">{{PORTFOLIO_TEXT}}</a>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Competences</div>
+      <div class="skill-group">
+        <strong>{{SKILL_DOMAIN_1}}</strong>
+        <ul>
+          <li>{{SKILL_1_1}}</li>
+          <li>{{SKILL_1_2}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Certifications</div>
+      <ul>
+        <li>{{CERT_1}}</li>
+        <li>{{CERT_2}}</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Langues</div>
+      <ul>
+        <li>{{LANG_1}}</li>
+        <li>{{LANG_2}}</li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="main-header">
+      <h1>{{FULL_NAME}}</h1>
+      <div class="title">{{TARGET_TITLE}}</div>
+    </header>
+
+    <section>
+      <div class="section-title">Profil</div>
+      <p class="profile-text">{{PROFILE_TEXT}}</p>
+    </section>
+
+    <section>
+      <div class="section-title">Experience professionnelle</div>
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">{{JOB_TITLE}}</div>
+          <div class="job-date">{{JOB_DATE}}</div>
+        </div>
+        <div class="job-meta">{{JOB_ORG}}, {{JOB_LOC}}</div>
+        <p class="job-desc">{{JOB_DESC}}</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Projets majeurs</div>
+    </section>
+
+    <section>
+      <div class="section-title">Formation</div>
+      <div class="formation-item">
+        <div class="formation-title">{{DEGREE}}</div>
+        <div class="formation-meta">{{SCHOOL}} — {{YEAR}}</div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

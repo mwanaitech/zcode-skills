@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Lettre de Motivation</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;background:#1a3d2e}
+  .page{width:210mm;height:297mm;margin:0 auto;background:linear-gradient(180deg,#2d7a52 0%,#1a3d2e 40%,#0f2a1e 100%);position:relative;padding:0;overflow:hidden;color:#fff}
+  .page:before{content:"";position:absolute;top:0;left:0;right:0;height:12mm;background:#0d1f15;z-index:2}
+  .page:after{content:"";position:absolute;bottom:0;left:0;right:0;height:8mm;background:#0d1f15;z-index:2}
+  .inner{padding:14mm 12mm 12mm;position:relative;z-index:1}
+  .header-bar{position:absolute;top:12mm;left:0;right:0;height:1px;background:rgba(255,255,255,.3);z-index:1}
+  .sender{font-size:9px;line-height:1.5;color:#e8e8e8;margin-bottom:5mm}
+  .sender strong{color:#f0c85c;font-size:10px}
+  .date{font-size:9px;color:#d4d4d4;margin-bottom:5mm;font-style:italic}
+  .recipient{font-size:9px;line-height:1.5;color:#e8e8e8;margin-bottom:6mm;padding-left:70mm}
+  .recipient strong{color:#f0c85c}
+  .subject{background:rgba(13,31,21,.6);border-left:3px solid #f0c85c;padding:3mm 4mm;margin-bottom:6mm;font-size:10px;line-height:1.4;color:#fff}
+  .subject strong{color:#f0c85c;text-transform:uppercase}
+  .letter-body{font-size:10px;line-height:1.55;color:#f0f0f0;text-align:justify}
+  .letter-body p{margin-bottom:2.5mm;text-indent:0}
+  .salutation{font-size:10px;color:#f0c85c;font-weight:700;margin-bottom:3mm;text-transform:uppercase;letter-spacing:.5px}
+  .closing{margin-top:6mm;text-align:right;color:#e8e8e8;font-size:9px;line-height:1.5}
+  .closing strong{color:#f0c85c;font-size:11px}
+  .highlight{color:#f0c85c;font-weight:700}
+  .gold-line{width:40mm;height:2px;background:linear-gradient(90deg,#f0c85c,transparent);margin:2mm 0 4mm}
+  @page{size:A4;margin:0}
+  @media print{body{background:#fff}.page{box-shadow:none;margin:0}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header-bar"></div>
+  <div class="inner">
+    <div class="sender">
+      <strong>PRENOM NOM</strong><br>
+      Adresse<br>
+      Tél : +XXX XX XX XX XX<br>
+      Email : email@example.com
+    </div>
+    <div class="gold-line"></div>
+    <div class="date">Ville, le DATE</div>
+    <div class="recipient">
+      <strong>Destinataire</strong><br>
+      Entreprise<br>
+      Adresse
+    </div>
+    <div class="subject">
+      <strong>Objet :</strong> Candidature au poste de POSTE – disponibilité plein temps
+    </div>
+    <div class="salutation">Madame, Monsieur,</div>
+    <div class="letter-body">
+      <p>C'est avec un vif intérêt que je vous adresse ma candidature au poste de <span class="highlight">POSTE</span> au sein de votre établissement...</p>
+      <p>Paragraphe sur la formation et l'expérience...</p>
+      <p>Paragraphe sur la pédagogie / approche professionnelle...</p>
+      <p>Paragraphe sur les certifications et compétences techniques...</p>
+      <p>Paragraphe de conclusion et disponibilité...</p>
+      <p>Je me tiens à votre entière disposition pour un entretien...</p>
+    </div>
+    <div class="closing">
+      Je vous prie d'agréer, Madame, Monsieur,<br>
+      l'expression de mes salutations distinguées.<br><br>
+      <strong>Signature</strong>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CV PRENOM NOM</title>
+<style>
+  :root{
+    --dark:#1b2129; --dark2:#141920; --gold:#b88038; --gold2:#cc9348;
+    --text:#2d2d2d; --blue:#264f67; --paper:#fff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#e9e9e9;font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+  .page{width:210mm;height:297mm;margin:0 auto;background:var(--paper);display:grid;grid-template-columns:65mm 1fr;box-shadow:0 12px 40px rgba(0,0,0,.18)}
+  .sidebar{background:var(--dark);color:#fff;position:relative;padding:5mm 4mm 4mm;overflow:hidden}
+  .sidebar:before{content:"";position:absolute;inset:0 0 auto 0;height:45mm;background:var(--dark2)}
+  .sidebar:after{content:"";position:absolute;top:0;right:0;width:2mm;height:100%;background:var(--gold)}
+  .side-inner{position:relative;z-index:1}
+  .photo{width:28mm;height:28mm;border-radius:50%;margin:0 auto 4mm;display:block;object-fit:cover;object-position:center top;border:3px solid rgba(255,255,255,.15);box-shadow:0 0 0 2px rgba(184,128,56,.5)}
+  .side-title{background:var(--gold);color:#fff;text-align:center;font-weight:800;text-transform:uppercase;font-size:9px;letter-spacing:.5px;padding:4px 6px;margin:4mm 0 2mm}
+  .side-title:first-of-type{margin-top:4mm}
+  .contact{display:grid;gap:8px;font-size:10px;line-height:1.25}
+  .contact-item{display:grid;grid-template-columns:18px 1fr;gap:7px;align-items:start}
+  .icon{width:18px;height:18px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:bold;line-height:1}
+  .contact-item strong{display:block;color:#fff;font-size:9px;text-transform:uppercase;letter-spacing:.2px}
+  .contact-item span{color:#e8e8e8;overflow-wrap:anywhere}
+  .skill-group{margin-bottom:8px}
+  .skill-group h4{font-size:10px;color:var(--gold2);margin:0 0 3px;font-weight:800}
+  .skill-group p,.side-list{font-size:9px;line-height:1.35;color:#ededed;margin:0}
+  .side-list{padding-left:13px}
+  .side-list li{margin:0 0 4px;padding-left:1px}
+  .main{padding:8mm 7mm 4mm 7mm;background:#fff}
+  .name{font-size:30px;line-height:1;font-weight:900;letter-spacing:.5px;margin:0;text-transform:uppercase;color:#111}
+  .name .gold{color:var(--gold)}
+  .headline{font-size:18px;color:var(--blue);font-weight:900;margin:4px 0 6px;text-transform:uppercase;letter-spacing:1px}
+  .rule{height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:4mm}
+  .section-title{display:inline-block;background:var(--gold);color:#fff;text-transform:uppercase;font-weight:900;font-size:10px;letter-spacing:.45px;padding:4px 14px;margin:0 0 2mm}
+  .profile{font-size:10px;line-height:1.35;margin:0;color:#333;text-align:justify}
+  .timeline{display:grid;gap:2.5mm}
+  .item{display:grid;grid-template-columns:24mm 1fr;gap:5mm;break-inside:avoid}
+  .date{font-size:8px;font-weight:800;color:#111;line-height:1.2;text-transform:uppercase;padding-top:1px}
+  .content h3{font-size:11px;line-height:1.15;margin:0 0 1px;color:#111;text-transform:none}
+  .org{font-size:9px;line-height:1.2;color:var(--gold);font-weight:800;margin:0 0 1px}
+  .desc{font-size:9px;line-height:1.3;margin:0;color:#333}
+  .formation{display:grid;gap:2mm}
+  .formation .item{grid-template-columns:16mm 1fr}
+  .footer{font-size:7px;color:#888;border-top:1px solid #ddd;padding-top:3px;text-align:right;margin-top:2mm}
+  @page{size:A4;margin:0}
+  @media print{body{background:#fff}.page{box-shadow:none;margin:0;width:210mm;height:297mm}.section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="page">
+  <aside class="sidebar">
+    <div class="side-inner">
+      <img class="photo" src="file:///PATH/TO/PHOTO.png" alt="PRENOM NOM">
+      <div class="side-title">Contact</div>
+      <div class="contact">
+        <div class="contact-item"><div class="icon">T</div><div><strong>Téléphone</strong><span>+241 XX XX XX XX</span></div></div>
+        <div class="contact-item"><div class="icon">@</div><div><strong>Email</strong><span>email@example.com</span></div></div>
+        <div class="contact-item"><div class="icon">&#8962;</div><div><strong>Adresse</strong><span>Libreville, Gabon</span></div></div>
+        <div class="contact-item"><div class="icon">in</div><div><strong>LinkedIn</strong><span>linkedin.com/in/... </span></div></div>
+      </div>
+      <div class="side-title">Compétences</div>
+      <div class="skill-group"><h4>Domaine 1</h4><p>Compétence A, Compétence B, Compétence C</p></div>
+      <div class="skill-group"><h4>Domaine 2</h4><p>Compétence D, Compétence E</p></div>
+      <div class="side-title">Certifications</div>
+      <ul class="side-list"><li>Certification — Année</li></ul>
+      <div class="side-title">Langues</div>
+      <ul class="side-list"><li>Français : courant</li><li>Anglais : technique</li></ul>
+    </div>
+  </aside>
+  <section class="main">
+    <h1 class="name"><span class="gold">PRENOM</span> NOM</h1>
+    <div class="headline">TITRE DU POSTE</div>
+    <div class="rule"></div>
+    <section>
+      <h2 class="section-title">À propos de moi</h2>
+      <p class="profile">Texte du profil professionnel ici...</p>
+    </section>
+    <section>
+      <h2 class="section-title">Expérience professionnelle</h2>
+      <div class="timeline">
+        <article class="item"><div class="date">Date</div><div class="content"><h3>Poste</h3><p class="org">Entreprise, Ville</p><p class="desc">Description...</p></div></article>
+      </div>
+    </section>
+    <section>
+      <h2 class="section-title">Formation</h2>
+      <div class="formation">
+        <article class="item"><div class="date">Année</div><div class="content"><h3>Diplôme</h3><p class="org">Établissement</p></div></article>
+      </div>
+    </section>
+    <div class="footer">Curriculum vitae — PRENOM NOM</div>
+  </section>
+</main>
+</body>
+</html>

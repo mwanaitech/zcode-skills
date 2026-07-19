@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV - NOM</title>
+<style>
+@page { size: A4; margin: 4mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #fff;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.page { width: 210mm; height: 297mm; margin: 0; background: #fff; display: flex; overflow: hidden; }
+.sidebar { width: 64mm; background: #0B1021; color: #fff; padding: 6mm 3mm 4mm 3mm; display: flex; flex-direction: column; }
+.main { width: 146mm; padding: 5mm 4mm 3mm 4mm; color: #222; }
+.name { font-size: 18pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #fff; line-height: 1.05; }
+.role { font-size: 9pt; font-weight: 600; color: #C9A227; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 2.5mm; }
+.sidebar-section { margin-bottom: 2mm; }
+.sidebar-title { font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #C9A227; border-bottom: 1px solid #C9A227; padding-bottom: 0.6mm; margin-bottom: 1mm; }
+.sidebar-text { font-size: 7pt; line-height: 1.15; color: #E2E2E2; }
+.contact-item { font-size: 7pt; color: #E2E2E2; line-height: 1.1; }
+.lang-block { margin-bottom: 0.4mm; }
+.lang-name { font-size: 7pt; font-weight: 600; color: #fff; }
+.lang-level { font-size: 6.5pt; color: #bbb; }
+.main-section { margin-bottom: 1.5mm; }
+.main-title { font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0B1021; border-left: 2px solid #C9A227; padding-left: 1.5mm; margin-bottom: 1mm; }
+.exp-item { margin-bottom: 1.2mm; }
+.exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+.exp-title { font-size: 7.5pt; font-weight: 700; color: #0B1021; }
+.exp-date { font-size: 7pt; font-weight: 600; color: #C9A227; white-space: nowrap; }
+.exp-place { font-size: 7pt; font-weight: 500; color: #555; }
+.exp-desc { font-size: 7pt; line-height: 1.15; color: #444; }
+.cert-line { font-size: 7pt; line-height: 1.15; color: #444; }
+.comp-line { font-size: 7pt; line-height: 1.2; color: #444; }
+.comp-key { font-weight: 700; color: #0B1021; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="sidebar">
+    <div class="name">MIHINDOU<br>MBUNGU<br>MARK</div>
+    <div class="role">Maieuticien DE</div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Contact</div>
+      <div class="contact-item">Charbonnages / Lac bleu</div>
+      <div class="contact-item">Libreville, Gabon</div>
+      <div class="contact-item">marcmihindoumbungu@gmail.com</div>
+      <div class="contact-item">062.37.38.30 / 077.53.36.50</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Profil</div>
+      <div class="sidebar-text">Diplome d'Etat de l'IFSE, 2e Major. Determine dans la sante maternelle/neonatale. Competences cliniques et sensibilisation communautaire.</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Atouts</div>
+      <div class="sidebar-text">Empathie, Habilete, Adaptation, Ponctualite, Leadership, Travail d'equipe</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Langues</div>
+      <div class="lang-block"><span class="lang-name">Francais</span> — <span class="lang-level">Courant</span></div>
+      <div class="lang-block"><span class="lang-name">Anglais</span> — <span class="lang-level">Universitaire</span></div>
+      <div class="lang-block"><span class="lang-name">Espagnol</span> — <span class="lang-level">Scolaire</span></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Logiciels</div>
+      <div class="sidebar-text">Word — Intermed.<br>PowerPoint — Intermed.<br>Excel — Debutant</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main-section">
+      <div class="main-title">Formation</div>
+      <div class="cert-line">
+        <strong>2025</strong> — Licence Professionnelle Maieutique, IFSE<br>
+        <strong>2024</strong> — Attestation Formation Incendie Equipier (Sapeurs-Pompiers)<br>
+        <strong>2022</strong> — Baccalaureat General
+      </div>
+    </div>
+    <div class="main-section">
+      <div class="main-title">Certifications Cisco 2026</div>
+      <div class="cert-line">Sensibilisation au numerique | Introduction IoT & transformation digitale | Utilisation ordinateurs & equipements mobiles | Introduction cybersecurite</div>
+    </div>
+    <div class="main-section">
+      <div class="main-title">Experiences Professionnelles</div>
+      <div class="exp-item">
+        <div class="exp-header"><div class="exp-title">Maieuticien stagiaire — CPN</div><div class="exp-date">Fev. 2025</div></div>
+        <div class="exp-place">SAMU Social, Libreville</div>
+        <div class="exp-desc">Suivi grossesse normale, classes meres, depistage cancers sein/col, confirmation grossesse, retrait implant</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><div class="exp-title">Maieuticien stagiaire — Salle d'accouchement</div><div class="exp-date">Nov. 2024</div></div>
+        <div class="exp-place">Hopital Chinois de Libreville</div>
+        <div class="exp-desc">Accouchements eutociques, surveillance suite couches, parametres vitaux</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><div class="exp-title">Maieuticien stagiaire — CPN / Accouchement</div><div class="exp-date">Mar. 2024</div></div>
+        <div class="exp-place">Clinique Vie Verte, Libreville</div>
+        <div class="exp-desc">Suivi grossesse T1-T2-T3, accouchements eutociques, post-partum, education therapeutique</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><div class="exp-title">Maieuticien stagiaire — Psychiatrie</div><div class="exp-date">2024</div></div>
+        <div class="exp-place">Clinique Medi-Vision, Libreville</div>
+        <div class="exp-desc">Assistance medicale, secretariat medical, injections IM, gestion patients troubles mentaux</div>
+      </div>
+    </div>
+    <div class="main-section">
+      <div class="main-title">Competences</div>
+      <div class="comp-line"><span class="comp-key">Cliniques :</span> Suivi prenatal CPN, accouchement eutocique, post-partum, parametres vitaux, depistage cancer sein/col, conseil contraceptif, injection IM, soins infirmiers, education therapeutique.<br>
+      <span class="comp-key">Administratives :</span> Secretariat medical, gestion dossiers patients.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
