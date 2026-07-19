@@ -1,15 +1,12 @@
 # 🧠 ZCode Skills — Collection Complète
 
 > **Snapshot complet de tous les skills ZCode** — sauvegarde, référence et exploration.
-> **Complete snapshot of all ZCode skills** — backup, reference and exploration.
 
 Ce dépôt contient l'intégralité des skills disponibles dans l'écosystème ZCode, utilisés pour assister des agents IA dans des tâches variées : cybersécurité, développement, design, finance, marketing, éducation et bien plus.
 
-This repository contains the full collection of skills available in the ZCode ecosystem, used to assist AI agents in a wide range of tasks: cybersecurity, development, design, finance, marketing, education and more.
-
 ---
 
-## 📦 Structure du dépôt / Repository Structure
+## 📦 Structure du dépôt
 
 ```
 zcode-skills/
@@ -58,7 +55,7 @@ zcode-skills/
 
 ---
 
-## 🗂️ Catégories principales / Top Categories
+## 🗂️ Catégories principales
 
 | # | Catégorie | Nb skills | Domaine |
 |---|-----------|----------|---------|
@@ -83,7 +80,7 @@ zcode-skills/
 | 19 | `figma-*` | 8 | Design & Figma |
 | 20 | `ai-*` / `data-*` | 8+8 | AI/ML & Data |
 
-### 🌐 Domaines couverts / Covered Domains
+### 🌐 Domaines couverts
 
 - **🔒 Cybersécurité** — Pentest, SOC, forensics, threat hunting, reverse engineering, malware analysis, red team, blue team, purple team, GRC, IAM, zero trust, OT/ICS, cloud security, API security, appsec
 - **☁️ Cloud & DevOps** — GKE, Cloudflare, AWS, Azure, GCP, Docker, Kubernetes, CI/CD, Terraform, GitHub Actions
@@ -98,9 +95,9 @@ zcode-skills/
 
 ---
 
-## 📄 Format d'un skill / Skill Format
+## 📄 Format d'un skill
 
-Chaque skill est un sous-dossier avec un fichier `SKILL.md` contenant :
+Chaque skill est un sous-dossier avec un fichier `SKILL.md` contenant les instructions et la définition du skill :
 
 ```
 skill-name/
@@ -108,11 +105,9 @@ skill-name/
 └── ...             # Fichiers annexes optionnels
 ```
 
-Every skill is a subdirectory with a `SKILL.md` file containing the skill's instructions and definition.
-
 ---
 
-## 🚀 Utilisation / Usage
+## 🚀 Utilisation
 
 Ces skills sont conçus pour être utilisés avec l'agent ZCode (`/zcode`) en invoquant leur nom via la commande `/` :
 
@@ -131,7 +126,7 @@ Ou directement depuis un agent compatible via l'outil `Skill` :
 
 ---
 
-## 🔗 Liens / Links
+## 🔗 Liens
 
 - **Dépôt GitHub** : `https://github.com/mwanaitech/zcode-skills` (privé)
 - **Plateforme ZCode** : [zcode.ai](https://zcode.ai)
@@ -140,12 +135,24 @@ Ou directement depuis un agent compatible via l'outil `Skill` :
 
 ---
 
-## 📜 Licence / License
+## 📜 Licence
 
 Collection privée — Usage interne. Chaque skill peut avoir ses propres conditions d'utilisation.
-Private collection — Internal use. Each skill may have its own terms of use.
+
+---
+
+## 🇬🇧 English Summary
+
+This repository is a complete backup and reference snapshot of all ZCode skills. It contains **1,717 skills** organized across two directories:
+- **`skills/`** — 1,696 skills from the main ZCode ecosystem
+- **`agent-skills/`** — 21 skills from the dedicated agent environment
+
+Skills are grouped by functional prefixes (e.g., `performing-*`, `implementing-*`, `detecting-*`) and cover domains including cybersecurity, cloud/DevOps, AI/ML, development, design, finance, marketing, legal/compliance, education, and geo-spatial.
+
+To use a skill: `/skill-name` with a ZCode-compatible agent.
+
+*Repository: `https://github.com/mwanaitech/zcode-skills` (private)*
 
 ---
 
 *Généré automatiquement — Snapshot de l'écosystème ZCode*
-*Automatically generated — ZCode ecosystem snapshot*
