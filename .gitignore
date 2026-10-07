@@ -1,0 +1,9 @@
+# Artefacts runtime locaux, régénérés par Freebuff, non versionnés.
+# .agents/skills est le miroir fusionné des skills chargés au runtime (~65 Mo).
+.agents/
+
+# Identifiant de projet local.
+.freebuff/
+
+# État interne des hooks (sessions, statuts).
+.mimosa/
