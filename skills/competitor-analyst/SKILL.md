@@ -1,5 +1,5 @@
 ---
-name: Competitor Analyst
+name: competitor-analyst
 description: Analyzes competitors using web research and structured frameworks
 ---
 

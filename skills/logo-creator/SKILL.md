@@ -1,6 +1,6 @@
 ---
 slug: muapi-logo-creator
-name: muapi-logo-creator
+name: logo-creator
 version: "0.1.0"
 description: Engineer professional-grade brand logos using geometric primitives and negative space — generates minimalist, scalable vector-style marks via muapi.ai
 acceptLicenseTerms: true

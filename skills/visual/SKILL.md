@@ -1,5 +1,5 @@
 ---
-name: "Visual"
+name: visual
 description: "提供平面设计、UI交互、PPT美化及品牌调性升级指引。 "
 ---
 

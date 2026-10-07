@@ -1,5 +1,5 @@
 ---
-name: sunswap-dex-trading
+name: sunswap
 description: Execute token swaps, manage liquidity, and query market data on SunSwap DEX via the sun-cli.
 version: 3.2.0
 dependencies:

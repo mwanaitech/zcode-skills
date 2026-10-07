@@ -1,3 +1,8 @@
+---
+name: ai-data-analysis
+description: "Automated data analysis service: process, clean and visualise CSV/Excel/JSON datasets, detect trends and anomalies, and produce charts and reports."
+---
+
 # SKILL.md
 
 # Data Analysis Service

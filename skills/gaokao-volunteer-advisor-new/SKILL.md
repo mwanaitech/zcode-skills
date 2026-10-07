@@ -1,5 +1,5 @@
 ---
-name: gaokao-volunteer-advisor
+name: gaokao-volunteer-advisor-new
 description: 高考志愿填报智能助手。支持全国31省高考政策适配、分数/位次精准定位、院校与专业深度解析、职业前景评估、冲稳保方案生成、风险提醒与填报避坑。触发词：高考志愿、志愿填报、选大学、报考、专业选择、志愿方案、大学推荐、冲稳保、录取分数线、位次、高考报考。
 allowed-tools: WebSearch, WebFetch
 agent_created: true

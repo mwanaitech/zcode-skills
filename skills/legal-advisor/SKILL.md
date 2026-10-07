@@ -1,5 +1,5 @@
 ---
-name: "Legal Advisor — Bilingual Enhanced Edition"
+name: legal-advisor
 description: "Generate legal templates for labor, consumer, rental, and traffic disputes. Use when drafting dispute letters, reviewing tenant rights, preparing claims. Supports bilingual documentation and optimized AI agent interaction. 支持中英双语文档与AI助手深度优化。"
 version: "2.0.1"
 author: "BytesAgain"

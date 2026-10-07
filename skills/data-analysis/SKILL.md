@@ -1,5 +1,5 @@
 ---
-name: Data Analysis
+name: data-analysis
 slug: data-analysis
 version: 1.0.2
 homepage: https://clawic.com/skills/data-analysis

@@ -1,5 +1,5 @@
 ---
-name: official-document
+name: official-document-template
 description: 公文排版工具。将Markdown格式内容转换为符合GB/T 9704-2012标准的Word文档。当用户需要制作通知、请示、报告、批复、意见等公文时触发。
 ---
 

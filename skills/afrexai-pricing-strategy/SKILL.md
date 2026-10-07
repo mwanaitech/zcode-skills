@@ -1,3 +1,8 @@
+---
+name: afrexai-pricing-strategy
+description: "Skill \"Pricing Strategy Analyzer\". Analyze and optimize pricing for any product or service."
+---
+
 # Pricing Strategy Analyzer
 
 Analyze and optimize pricing for any product or service. Covers value-based, cost-plus, competitive, and tiered pricing models.

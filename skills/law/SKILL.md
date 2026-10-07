@@ -1,5 +1,5 @@
 ---
-name: Law
+name: law
 description: Support legal understanding from everyday rights to professional practice and scholarship.
 metadata: {"clawdbot":{"emoji":"⚖️","os":["linux","darwin","win32"]}}
 ---

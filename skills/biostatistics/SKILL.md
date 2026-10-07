@@ -1,3 +1,8 @@
+---
+name: biostatistics
+description: "DNAI operates at the intersection of actuarial science, biostatistics, and computational medicine — not just epidemiology."
+---
+
 # Biostatistics & Computational Analytics Skill
 
 ## Identity

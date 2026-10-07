@@ -1,5 +1,5 @@
 ---
-name: content-writing-thought-leadership
+name: social-media-management
 description: B2B content writing with daily workflows and batching systems across Sales/HR/Fintech/Ops Tech
 metadata: {"clawdbot":{"emoji":"✍️","homepage":"https://github.com/shashwatgtm","always":true}}
 ---

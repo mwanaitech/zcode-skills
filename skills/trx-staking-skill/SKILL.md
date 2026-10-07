@@ -1,5 +1,5 @@
 ---
-name: trx-staking-sr-voting
+name: trx-staking-skill
 description: Stake TRX, vote for Super Representatives, and claim voting rewards on TRON.
 version: 1.0.0
 dependencies:

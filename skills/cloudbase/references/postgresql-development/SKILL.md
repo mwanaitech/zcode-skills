@@ -1,5 +1,5 @@
 ---
-name: postgresql-development-cloudbase
+name: postgresql-development
 description: "Use when building, debugging, or evaluating CloudBase PostgreSQL / CloudBase PG / PG mode apps, including Postgres schema setup, queryPgDatabase/managePgDatabase, JS SDK v3 app.rdb() CRUD/RPC, PG HTTP API fallback, RLS-style permissions, username-password auth, and Web CMS/admin CRUD flows backed by CloudBase PG."
 version: 2.23.2
 alwaysApply: false

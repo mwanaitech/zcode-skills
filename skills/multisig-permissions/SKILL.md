@@ -1,5 +1,5 @@
 ---
-name: multi-sig-account-permissions
+name: multisig-permissions
 description: Manage TRON multi-sig permissions — configure keys, thresholds, and co-signed proposals.
 version: 1.0.0
 dependencies:

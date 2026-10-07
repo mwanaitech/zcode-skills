@@ -1,5 +1,5 @@
 ---
-name: "Investment Researcher Digital Employee"
+name: investment-researcher-digital-employee
 slug: investment-researcher-digital-employee
 description: "覆盖宏观策略、固收研究、行业公司深度分析、量化因子、大类资产配置、可转债、市场情绪、政策快评、行业景气度追踪等34项核心研究能力。证券研究员的全能数字助手。"
 version: 2.0.0

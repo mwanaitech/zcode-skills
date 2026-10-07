@@ -1,5 +1,5 @@
 ---
-name: cloudbase-document-database-in-wechat-miniprogram
+name: no-sql-wx-mp-sdk
 description: Use CloudBase document database WeChat MiniProgram SDK to query, create, update, and delete data. Supports complex queries, pagination, aggregation, and geolocation queries.
 version: 2.23.2
 alwaysApply: false

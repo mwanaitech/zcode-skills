@@ -1,3 +1,8 @@
+---
+name: enterprise-departments
+description: "Structure multi-agent projects as virtual enterprises with functional departments (Dev, Security, QA, DevOps, Product). Each department gets its own private channel, color-coded identity, and lead role. This skill extends `agent-chat-room` with organizational hierarchy."
+---
+
 # Enterprise Departments
 
 ## Purpose

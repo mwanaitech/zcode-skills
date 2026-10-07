@@ -1,3 +1,8 @@
+---
+name: headroom
+description: "Skill \"Headroom — Context Compression Layer for AI Agents\". Compress everything your agent reads (tool outputs, logs, RAG chunks, files, conversation history) before it reaches the LLM."
+---
+
 # Headroom — Context Compression Layer for AI Agents
 
 Compress everything your agent reads (tool outputs, logs, RAG chunks, files, conversation history) before it reaches the LLM. 60–95% fewer tokens, same answers.

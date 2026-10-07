@@ -1,5 +1,5 @@
 ---
-name: tencent-cloud-cos
+name: tencent-cos-skill
 description: >
   腾讯云对象存储(COS)和数据万象(CI)集成技能。覆盖文件存储管理、AI处理和知识库三大核心场景。
   存储场景：上传文件到云端、下载云端文件、批量管理存储桶文件、获取文件签名链接分享、查看文件元信息。

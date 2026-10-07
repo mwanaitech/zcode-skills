@@ -133,7 +133,7 @@ Derniere mise a jour : 2026-06-30 (session 6 — Academic + Legal teams + Word M
 | SkillHub Slug | Nom | Rôle |
 |--------------|-----|------|
 | requirements-analysis | Requirements Analysis | Analyse besoins, EPIC, user stories, MoSCoW |
-| PRD-Writer | PRD Assistant | Atelier confirmation besoin, PRD dual |
+| prd-writer | PRD Assistant | Atelier confirmation besoin, PRD dual |
 | prd | PRD Creator | Création PRD structurée avec user stories |
 | prd-writer-pro | PRD Writer Pro | Rédaction pro de PRD, tous chapitres |
 | prd-to-design-doc | PRD to Design Doc | PRD → design requirements, info arch, flows |

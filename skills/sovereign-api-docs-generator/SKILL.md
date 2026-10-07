@@ -1,5 +1,5 @@
 ---
-name: API Documentation Generator
+name: sovereign-api-docs-generator
 description: Auto-generates comprehensive API docs from code. REST, GraphQL, WebSocket with examples and schemas.
 ---
 

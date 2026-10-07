@@ -1,5 +1,5 @@
 ---
-name: Growth
+name: growth
 description: Design and execute growth strategies with acquisition loops, activation, and retention systems.
 metadata: {"clawdbot":{"emoji":"📈","os":["linux","darwin","win32"]}}
 ---

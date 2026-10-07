@@ -1,5 +1,6 @@
 ---
-name: Financial Report Interpreter
+name: financial-report-interpreter
+description: "Interpret a financial report (income statement, balance sheet, cash flow) and explain the key ratios, trends and risks for a non-specialist stakeholder."
 version: v1.0.0
 tags: financial-analysis, report-interpretation, business-finance, ratio-analysis, stakeholder-communication
 ---

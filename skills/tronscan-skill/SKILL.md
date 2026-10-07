@@ -1,5 +1,5 @@
 ---
-name: tronscan-data-lookup
+name: tronscan-skill
 description: Query TRON blockchain data via the TronScan API — accounts, transactions, tokens, blocks, contracts, transfers, and chain statistics.
 version: 1.0.0
 dependencies:

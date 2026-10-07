@@ -1,5 +1,5 @@
 ---
-name: 股票价值投资分析 (valuation-analysis)
+name: valuation-analysis
 description: A股和港股价值投资分析系统。基于《股市真规则》方法论，提供完整的投资分析框架：护城河分析、财务健康检查、DCF估值、管理层评估、行业分析、投资决策整合。Use when user needs to (1) analyze stock investment value comprehensively, (2) evaluate economic moat and competitive advantage, (3) assess financial health and accounting quality, (4) calculate intrinsic value using DCF model, (5) evaluate management quality, (6) analyze industry structure and dynamics, or (7) make integrated investment decisions.
 author: 弗兰克小斯基（Frankski）
 license: Copyright (c) 2026 弗兰克小斯基（Frankski）. All rights reserved.

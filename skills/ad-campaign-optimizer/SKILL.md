@@ -1,3 +1,8 @@
+---
+name: ad-campaign-optimizer
+description: "Skill \"AI 智能广告投放助手\". 自动优化广告投放、A/B 测试、成本优化、ROI 分析。适合广告投放、市场、电商、品牌方。"
+---
+
 # AI 智能广告投放助手
 
 ## 描述

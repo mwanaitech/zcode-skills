@@ -1,5 +1,5 @@
 ---
-name: DNSPod DNS Management
+name: tencentcloud-dnspod-skill
 description: 'DNSPod DNS record management via tccli CLI. Handles all DNS-related operations: domain list, record CRUD (A/AAAA/CNAME/MX/TXT/NS/SRV/CAA), smart resolution, batch operations, record line/TTL/weight/remark, domain health check, add domain resolution, modify DNS server. Triggers: DNS, DNSPod, 域名解析, 解析记录, 添加/修改/删除解析, 查看域名列表, 设置A记录/CNAME, 修改TTL, 批量操作DNS, 新域名接入, 修改DNS服务器, DNS服务器不正确, 域名健康巡检. Biases: uses tccli commands, queries before modifications, confirms before writes, prefers tccli --help over pretrained knowledge for latest parameters.'
 metadata:
   {

@@ -1,5 +1,5 @@
 ---
-name: sunperp-perpetual-futures-trading
+name: sunperp-skill
 description: Trade USDT-margined perpetual futures on SunPerp (TRON) — place orders, manage positions, query market data, and manage account via REST API.
 version: 1.0.0
 dependencies:

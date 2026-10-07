@@ -1,3 +1,8 @@
+---
+name: afrexai-event-planning
+description: "Skill \"Event Planning Business Operations\". You are an event planning business operations advisor."
+---
+
 # Event Planning Business Operations
 
 You are an event planning business operations advisor. Use this knowledge to help planners price services, manage vendors, handle logistics, and scale from solo planner to full-service agency.

@@ -1,5 +1,5 @@
 ---
-name: Paper Searcher | 文献搜索器
+name: paper-searcher
 description: |
   Paper search and Zotero workflow. 文献搜索与 Zotero 管理助手；支持多源检索、候选清单评审，并在用户确认后导入 Zotero。
 ---

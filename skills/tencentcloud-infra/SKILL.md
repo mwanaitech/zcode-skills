@@ -1,5 +1,5 @@
 ---
-name: Tencent Cloud Infra
+name: tencentcloud-infra
 description: 'Unified skill for ALL Tencent Cloud operations via tccli. Supersedes any single-product skills (e.g. Lighthouse-only). Covers: Lighthouse, CVM, CBS, COS, VPC, DNSPod, SSL, CAM, Monitor, TAT, Domain, CloudAudit. Load when user mentions: 腾讯云, 轻量服务器, Lighthouse, CVM, 安全组, 域名, DNS, SSL, 云硬盘, 部署, 监控, CAM, instance ID, whoami, tccli, 防火墙, 快照, 镜像, 流量包, 建站, 安全检查, OpenClaw, 退出登录. Use for: 查看/创建/管理云资源, 安全巡检, 资源巡检, 应用部署, 建站, 云硬盘挂载, 证书检查, 登录/退出/切换账号. [INSTANCE ID] For instance ID / whoami / which machine: read SKILL.md for whoami.sh — the ONLY correct method. Do NOT use tccli or curl metadata directly. For all operations, read SKILL.md first. Biases: queries over modifications, confirm before execution, use tccli --help for latest params over pretrained knowledge.'
 metadata:
   {

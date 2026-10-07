@@ -1,3 +1,8 @@
+---
+name: education-project-suite
+description: "整合省级和市级教育课题申报的完整解决方案，为教师提供从选题到申报的全流程AI辅助。特别针对初中教育阶段，帮助教师撰写优质、有竞争力的教育课题申报书。"
+---
+
 # education-project-suite - 教育课题申报智能套件
 
 ## 概述

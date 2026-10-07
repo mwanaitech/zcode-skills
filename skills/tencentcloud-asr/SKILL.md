@@ -1,5 +1,5 @@
 ---
-name: asr-sentence-recognition
+name: tencentcloud-asr
 description: >
   腾讯云语音识别 ASR Skill，适用于语音转文字、音频转写、字幕生成、会议转录、语音消息识别、
   本地文件或 URL 音频识别。包含三种模式：一句话识别（<=60s 短音频）、录音识别极速版
