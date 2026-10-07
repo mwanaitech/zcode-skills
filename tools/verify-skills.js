@@ -4,12 +4,16 @@
 //   node tools/verify-skills.js [racine du depot]
 //
 // Contredit les regressions introduites par la deduplication des doublons :
-//   - un SKILL.md manquant ou vide,
-//   - un dossier de skill de premier niveau sans SKILL.md,
 //   - deux skills de meme nom normalise parmi les skills de premier niveau
 //     (le chargeur n'ecrase que ce niveau : un doublon ici est un vrai conflit),
+//   - un SKILL.md vide,
 //   - des repertoires vides,
 //   - une perte de volume (le nombre de SKILL.md ne peut pas s'effondrer).
+//
+// Sont signalees sans bloquer, car elles n'etaient pas des regressions :
+//   - un SKILL.md sans frontmatter, sans name ou sans description,
+//   - un name qui diverge du nom de dossier, un slug hors convention,
+//   - un dossier de premier niveau sans SKILL.md (conteneur de categorie).
 //
 // Les invariants ne bloquent pas sur ces defaults : ils verifient que le
 // nombre de SKILL.md ne chute pas et qu'aucun doublon n'apparait. Le detail
