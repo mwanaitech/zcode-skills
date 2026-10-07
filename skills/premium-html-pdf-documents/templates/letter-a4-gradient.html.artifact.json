@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "zcode-skills/skills/premium-html-pdf-documents/templates/letter-a4-gradient.html",
+  "entry": "zcode-skills/skills/premium-html-pdf-documents/templates/letter-a4-gradient.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-28T11:30:04.849Z",
+  "updatedAt": "2026-09-28T11:30:04.849Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

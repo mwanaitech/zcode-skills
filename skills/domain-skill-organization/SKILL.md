@@ -94,7 +94,7 @@ Search for each skill in the expert pack:
 skillhub search <slug-candidate> --search-limit 5
 ```
 
-Map the Expert Pack's skill slugs to actual SkillHub slugs by searching each one. Watch for French/English translation differences (e.g. `souverain-api-docs-générateur` → `sovereign-api-docs-generator`, `sécurité-audit` → `security-auditor`).
+Map the Expert Pack's skill slugs to actual SkillHub slugs by searching each one. Watch for French/English translation differences (e.g. `souverain-api-docs-générateur` → `api-documentation-generator`, `sécurité-audit` → `security-auditor`).
 
 ### Step 1b — Fallback: package slug fails (404)
 

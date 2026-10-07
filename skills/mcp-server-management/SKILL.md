@@ -114,6 +114,16 @@ add_paragraph(path="/tmp/test.docx", text="Hello world")
 | `node-fetch`/`gaxios` "Premature close" error with Google APIs | Node.js `googleapis` npm package uses `node-fetch` 2.x which has an HTTP response incompatibility with Google's servers | Switch to a Python-based MCP server using `google-api-python-client` — see `references/gmail-mcp.md` |
 | Config changes not picked up | Hermes reads config at start | Manually edit `~/.hermes/config.yaml` then restart |
 
+### Paper.design MCP
+
+Paper.design (app.paper.design) exposes a local MCP server at `http://127.0.0.1:29979/mcp` for programmatic design creation. Requires the **Paper Desktop app** running with an authenticated session — cookies alone don't suffice.
+
+**Download:** `https://download.paper.design/linux/deb` (or AppImage/rpm — see `references/paper-mcp.md`)
+
+**Key pitfall:** `tools/list` works without auth, but `tools/call` returns `"Your usage data could not be loaded"` unless the desktop app is running. The MCP server uses `mcp-remote` as a relay — it cannot create designs without the desktop backend.
+
+See `references/paper-mcp.md` for tool list, connection configs for Claude Code/Copilot/OpenCode, installation on headless Linux, and full pitfalls.
+
 ## Voir aussi
 
 - `bilan-journalier` → `references/multi-agent-kanban-setup.md` — includes MCP pitfalls table

@@ -164,3 +164,49 @@ See `templates/cv_docx_generator.py` for a starter script.
 ## Output Verification
 - `file output.docx` must confirm "Microsoft Word 2007+"
 - Size between 30-100KB for a text-only CV is normal.
+
+## User-Specific References
+
+For user-specific CV layout preferences confirmed through iteration, see:
+
+- `references/hans-axel-cv-preferences.md` — Hans Axel Mbina Mabicka's validated layout, content, and formatting rules (contact layout, skills content, school names, photo handling, section separation). Load this reference when updating his CV.
+
+## Pitfalls
+
+- **Name/title duplication**: When the CV uses a sidebar + main layout, the name and title must appear ONLY in the sidebar. The main content area starts directly with the profile section. The user will reject a duplicate — confirmed: « mon nom et le titre sont répétés deux fois, ce n'est pas bon ».
+- **Contact layout**: Use compact format — label and value on the same line (`<span class="label">Tél :</span> +241 XX XX XX XX`). Do NOT use `<br>` to stack label above value. For two phone numbers, use two separate lines with the same label.
+- **Langues / Atouts separation**: These are TWO distinct sections, not one combined « Langues & Atouts » section. The user explicitly requested separation.
+- **Photo embed for PDF export**: Base64 data-URI in the HTML is the most reliable approach. File-path methods can fail depending on Chrome headless's working directory. Use base64 for guaranteed rendering.
+- **Verify page count after every iteration**: Run `pdfinfo output.pdf | grep Pages` immediately after each Chrome headless export. Do NOT assume the HTML "looks" like one page — A4 overflow is invisible in HTML preview. Stop only when `Pages: 1`.
+- **Surgical edits only when requested**: When the user explicitly says "add X but don't change anything else" / "ne changer rien d'autres", make the **absolute minimum edit** to the existing file. Do NOT alter layout, spacing, fonts, colours, structure, or any other content. Paste the exact HTML received, inject only the requested addition, and regenerate PDF. Any redesign or reformatting in this context is a direct violation of the user's instruction.
+- **Source certification gaps**: When the source CV lists certifications without issuer or year (e.g., bare course names like "Sensibilisation au numerique"), ask the user to confirm the **issuing organization** and **year** before formatting. Do not leave certifications orphaned without an issuer block.
+- **Photo in PDF export fails to render**: Chrome headless cannot load `file:///` paths from outside the same directory or without the `--allow-file-access-from-files` flag. Always copy the photo to the same temp dir as the HTML before PDF export, OR use a data-URI base64 embed (heavy but guaranteed).
+  ```bash
+  cp cv_photo_round.png /tmp/
+  cp CV_*.html /tmp/
+  sed -i 's|file:///home/.*/cv_photo_round.png|cv_photo_round.png|g' /tmp/CV_*.html
+  google-chrome --headless --no-sandbox --disable-gpu \
+    --print-to-pdf=/tmp/output.pdf file:///tmp/CV_*.html
+  ```
+- **Emojis in source PDF**: Strip all during text extraction. Do NOT copy them into output.
+- **Single-page constraint**: The CV MUST fit on exactly one A4 page. NEVER deliver a 2-page CV. If content overflows, compact iteratively using the recipe below.
+  - **Iterative compaction recipe** (in order of impact):
+    1. Replace bullet lists with inline comma-separated descriptions (saves ~30% vertical space per block).
+    2. Replace skill-tag grids / pills with plain text lines or comma-separated lists.
+    3. Reduce body font to 7pt (floor), descriptions to 7pt, headings to 8.5pt, sidebar text to 7pt.
+    4. Tighten padding: sidebar 6mm/3mm, main 5mm/4mm, section gaps down to 1.5–2mm.
+    5. Remove decorative blocks (colored backgrounds on certifications) and keep only border-left accent.
+    6. Flatten multi-line formation entries into single lines separated by `<br>`.
+  - Only if all above fail: consider removing the least relevant experience entry or merging two short ones.
+- **Title (headline) visibility**: The role title below the name must be nearly as prominent as the name itself. Minimum 18px, bold 900, uppercase, letter-spacing. This is non-negotiable — the user will reject a small subtitle.
+- **Name formatting consistency**: **NO hyphens** in names unless user explicitly requests them. "Hans Axel Mbina Mabicka" not "Hans-Axel Mbina-Mabicka". Confirm with user before finalizing. This rejection is immediate and strict.
+- **Language register**: User demands **formal/sustained French** (français soutenu). Explicitly **forbidden**: "ça" (use "cela"), "il y a" (use "depuis" / "au cours de"), "mise en place" (use "élaboration" / "conception" / "développement"), "pilotage" (use "supervision" / "direction" / "encadrement"), "garantie" (use "veille à" / "assure"), "contribution à" (use "participation à"), "gestion" (use "administration" / "supervision"), "création et pilotage" (use "conception et direction"), "mise en place de supports" (use "élaboration de supports"). Review every sentence for register before delivering. See `references/formal-french-register.md` for the full checklist.
+- **pdftotext**: Some characters render as emojis or Unicode art. Always sanitize extracted text before processing.
+- **python-docx install**: System pip may be blocked by PEP 668. Use `uv venv` and activate before install.
+- **Font fallback for accents**: If accents show as boxes, the rFonts element must specify 'Calibri' for w:hAnsi and w:cs.
+- **Image composite side note**: If the CV includes a photo or company logo, see `brand-visual-creation` skill for GraphicsMagick compositing process.
+- **MCP Word tools are too slow for bulk content**: When adding >10 paragraphs/headings, building the .docx via individual MCP `mcp_office_word_add_paragraph` / `mcp_office_word_add_heading` calls is pathologically slow (one RPC per paragraph). **Fallback to python-docx instead**: write a single Python script that imports `docx`, builds the full document in one pass, saves it, then convert with LibreOffice headless (`libreoffice --headless --convert-to pdf`). This is 50-100x faster for multi-section reports. See `templates/bulk_docx_generator.py` for a generic reusable script.
+
+## Related References
+
+- `references/advanced-docx-formatting.md` — Covers general-purpose python-docx patterns beyond CVs: professional cover pages, styled tables with colored headers/alternating rows, mixed-formatting paragraphs, color-coded section headers, callout boxes, A4 page setup, page breaks, bullet lists, and a multi-part document architecture. Use this reference when generating non-CV documents (reports, TPs, academic papers) with python-docx.

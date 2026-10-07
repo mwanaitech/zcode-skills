@@ -111,3 +111,10 @@ Fournir un résumé structuré :
 /dribbble chercher saas landing page
 → Analyse hero sections, pricing cards, testimonial layouts
 → Pattern: bento grid pour features, gradient hero, animated stats
+
+### Landing page SaaS
+```
+/dribbble chercher saas landing page
+→ Analyse hero sections, pricing cards, testimonial layouts
+→ Pattern: bento grid pour features, gradient hero, animated stats
+```

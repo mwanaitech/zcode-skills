@@ -120,6 +120,23 @@ model_aliases:
 
 Then invoke via `/model mistral-fr` or `delegate_task(...)` with that alias.
 
+## 8. Web-cookie (session) providers
+
+Providers like **arena.ai** (lmarena) use browser session cookies instead of API keys. They are proxied through free web-chat platforms. These are fragile and often blocked by Cloudflare Enterprise.
+
+**Key differences from API-key providers:**
+- Credentials expire every few hours (browser session cookies)
+- May require reCAPTCHA v3 tokens (expire in ~2 minutes)
+- Can be blocked by Cloudflare TLS fingerprinting (JA3/JA4)
+- Require `tls-client-node` for Chrome TLS impersonation to work reliably
+
+See `references/omniroute-web-cookie-providers.md` for full setup guide, API reference, and troubleshooting.
+
+## References
+- `references/model-validation-checklist.md` — copy-paste checklist for adding a new model
+- `references/omniroute-web-cookie-providers.md` — arena.ai web-cookie provider setup + troubleshooting (reCAPTCHA, TLS impersonation, Cloudflare 403)
+- `scripts/test_fable5.sh` — example cron probe for AWS Marketplace model availability
+
 ## References
 - `references/model-validation-checklist.md` — copy-paste checklist for adding a new model
 - `scripts/test_fable5.sh` — example cron probe for AWS Marketplace model availability

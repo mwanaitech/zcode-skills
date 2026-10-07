@@ -86,7 +86,7 @@ Active ce workflow quand l'utilisateur demande :
 
 Ce skill orchestre les skills suivants si présents :
 - `refactoring` — workflow de refactoring profond
-- `ah-refactoring-specialist` — spécialiste transformation de code
+- `refactoring-specialist` — spécialiste transformation de code
 - `code-refactoring` — patterns et techniques de refactoring
 - `agent-git-oracle` — analyse dette technique et antipatterns
 - `clean-code-review` — review SOLID / Clean Code

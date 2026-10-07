@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "zcode-skills/skills/algorithmic-art/templates/viewer.html",
+  "entry": "zcode-skills/skills/algorithmic-art/templates/viewer.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-28T11:29:43.841Z",
+  "updatedAt": "2026-09-28T11:29:43.841Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

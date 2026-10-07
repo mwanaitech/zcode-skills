@@ -69,6 +69,8 @@ Need storage?
 ├─ Strongly-consistent per-entity state → durable-objects/ (DO storage)
 ├─ Secrets management → secrets-store/
 ├─ Streaming ETL to R2 → pipelines/
+├─ Managed Apache Iceberg catalog on R2 → r2-data-catalog/
+├─ Serverless SQL analytics over Iceberg tables → r2-sql/
 └─ Persistent cache (long-term retention) → cache-reserve/
 ```
 
@@ -126,6 +128,7 @@ Need analytics?
 ├─ Custom high-cardinality metrics from Workers → analytics-engine/
 ├─ Client-side (RUM) performance data → web-analytics/
 ├─ Workers Logs and real-time debugging → observability/
+├─ SQL over Iceberg data lake (logs, events) → r2-sql/ (+ pipelines/, r2-data-catalog/)
 └─ Raw logs (Logpush to external tools) → Cloudflare docs
 ```
 
@@ -243,3 +246,30 @@ Need IaC? → pulumi/ (Pulumi), terraform/ (Terraform), or api/ (REST API)
 | Static Assets | `references/static-assets/` |
 | Bindings | `references/bindings/` |
 | Cache Reserve | `references/cache-reserve/` |
+
+### "I need to store data"
+
+```
+Need storage?
+├─ Key-value (config, sessions, cache) → kv/
+├─ Relational SQL → d1/ (SQLite) or hyperdrive/ (existing Postgres/MySQL)
+├─ Object/file storage (S3-compatible) → r2/
+├─ Versioned file trees (repos, build outputs, checkpoints) → artifacts/
+├─ Message queue (async processing) → queues/
+├─ Vector embeddings (AI/semantic search) → vectorize/
+├─ Strongly-consistent per-entity state → durable-objects/ (DO storage)
+├─ Secrets management → secrets-store/
+├─ Streaming ETL to R2 → pipelines/
+└─ Persistent cache (long-term retention) → cache-reserve/
+```
+
+### "I need analytics/metrics data"
+
+```
+Need analytics?
+├─ Query across all Cloudflare products (HTTP, Workers, DNS, etc.) → graphql-api/
+├─ Custom high-cardinality metrics from Workers → analytics-engine/
+├─ Client-side (RUM) performance data → web-analytics/
+├─ Workers Logs and real-time debugging → observability/
+└─ Raw logs (Logpush to external tools) → Cloudflare docs
+```

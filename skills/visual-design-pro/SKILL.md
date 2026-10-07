@@ -11,7 +11,19 @@ Expert in high-end visual asset creation (Presentations, CVs, Branding, Banners)
 - **Professional Logo Integration**: Never just "paste" a logo. Use blending, shadows, or glow effects to make it feel part of the scene.
 - **Typography Hierarchy**: Use clear font-size scaling (Title > Subtitle > Body) and professional sans-serif fonts (Calibri, Arial, Inter).
 
+## Reference Files
+
+- `references/playwright-vision-qa.md` — Pipeline complet : rendre un HTML/CSS design en PNG haute resolution via Playwright, avec boucle de QA visuelle via `vision_analyze`.
+
 ## Workflows
+### Poster / Web Design HTML → PNG
+1. Produire un fichier HTML/CSS auto-contenu avec la charte graphique cible.
+2. Servir localement : `python3 -m http.server 9876`.
+3. Lancer le script Playwright (voir `references/playwright-vision-qa.md`) pour capturer un PNG en 2× retina.
+4. QA via `vision_analyze()` : verifier contraste, alignement, coherence, qualite perçue.
+5. Patcher le CSS cible, re-rendre, reiterer jusqu'a validation.
+6. Livrer le PNG final avec son chemin absolu.
+
 ### Presentation Design (PPTX)
 1. Generate high-quality, context-aware background images using AI (FLUX/FAL).
 2. Create a split-layout template (Image | Text) using `python-pptx`.

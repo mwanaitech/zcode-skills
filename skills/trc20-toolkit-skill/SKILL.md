@@ -1,5 +1,5 @@
 ---
-name: TRC20 Token Toolkit
+name: trc20-token-toolkit
 description: Universal TRC20 token operations — transfer, approve, query balances, and fetch metadata.
 version: 1.0.0
 dependencies:

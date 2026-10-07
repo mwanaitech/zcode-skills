@@ -70,10 +70,28 @@ const val = await env.FLAGS.getBooleanValue("gradual-rollout", false, {
 curl -X PUT -d '{"enabled": true}' ...
 
 # ✅ GOOD — GET first, modify, PUT back
-FLAG=$(curl -s -H "Authorization: Bearer $TOKEN" "$URL/flags/my-flag" | jq '.data')
+FLAG=$(curl -s -H "Authorization: Bearer $TOKEN" "$URL/flags/my-flag" | jq '.result')
 UPDATED=$(echo "$FLAG" | jq '.enabled = true')
 echo "$UPDATED" | curl -s -X PUT -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d @- "$URL/flags/my-flag"
 ```
+
+### Reading REST Envelope Fields
+
+**Cause:** Management endpoints use Cloudflare v4 envelopes, not raw payloads.
+
+**Solution:** Read `.result` for successful payloads, `.result_info.cursor` for pagination, and `.errors[].message` for errors.
+
+```bash
+jq '.result'
+jq '.result_info.cursor'
+jq '.errors[].message'
+```
+
+### Mixing CamelCase and Snake Case in REST Responses
+
+**Cause:** Management API responses are public API JSON and use snake_case. Evaluation responses use OpenFeature-style camelCase.
+
+**Solution:** For management endpoints use `default_variation`, `serve_variation`, `updated_at`, `updated_by`, and changelog `flag_key`. For `/evaluate`, use `flagKey`, `variant`, and `reason`.
 
 ### FLAG_NOT_FOUND in Client Provider
 
@@ -158,3 +176,9 @@ Flag changes propagate globally within seconds. During the brief propagation win
 - No Worker redeployment needed for flag changes.
 - If the dashboard is temporarily unavailable, evaluation continues using the last propagated configuration.
 - Flag changes made via the REST API and dashboard are equivalent — both trigger propagation.
+
+# ✅ GOOD — GET first, modify, PUT back
+FLAG=$(curl -s -H "Authorization: Bearer $TOKEN" "$URL/flags/my-flag" | jq '.data')
+UPDATED=$(echo "$FLAG" | jq '.enabled = true')
+echo "$UPDATED" | curl -s -X PUT -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d @- "$URL/flags/my-flag"
+```

@@ -128,22 +128,22 @@ Active ce workflow quand l'utilisateur demande de :
 
 | Scène | Skill Slug | Description |
 |-------|-----------|-------------|
-| Inspection & dépannage | `tencentcloud-infra` | CVM/CBS/COS/VPC/DNSPod/SSL/CAM/Monitor — inventaire, anomalies, certificats |
+| Inspection & dépannage | `tencent-cloud-infra` | CVM/CBS/COS/VPC/DNSPod/SSL/CAM/Monitor — inventaire, anomalies, certificats |
 | Serveur léger | `tencentcloud-lighthouse-skill` | Lighthouse : statut, pare-feu, snapshots, déploiement apps |
 | Nom de domaine | `tencentcloud-dnspod-skill` | DNSPod : records A/AAAA/CNAME/MX/TXT, smart resolution, batch |
 | CloudBase | `cloudbase` | CloudBase : Web/applet, cloud functions, database, hosting, AI |
 | App Web | `web-development` | React/Vue/Vite, debug, build, déploiement CloudBase/Lighthouse |
 | MiniProgram | `miniprogram-development` | WeChat Mini Program : pages, components, CI, preview, publish |
-| Stockage objet | `tencent-cos-skill` | COS : upload/download/delete, image processing, knowledge base |
+| Stockage objet | `tencent-cloud-cos` | COS : upload/download/delete, image processing, knowledge base |
 | Cloud personnel | `tencent-agent-storage` | Upload/download/backup fichiers cloud, liens partage |
-| OCR | `tencentcloud-ocr` | GeneralAccurateOCR : texte dans images, coordonnées, confiance |
-| ASR | `tencentcloud-asr` | Reconnaissance vocale : court, extrême, asynchrone, sous-titres |
+| OCR | `tencentcloud-ocr-generalaccurate` | GeneralAccurateOCR : texte dans images, coordonnées, confiance |
+| ASR | `asr-sentence-recognition` | Reconnaissance vocale : court, extrême, asynchrone, sous-titres |
 
 ## Routage par scène
 
 ### Scène 1 : Inspection des ressources cloud et dépannage
 **Déclencheurs :** inventaire, anomalie, certificat, permission, monitoring, audit
-**Skill :** `tencentcloud-infra`
+**Skill :** `tencent-cloud-infra`
 **Livrables :** inventaire ressources, conclusions anomalies, éléments de risque, actions à confirmer
 
 ### Scène 2 : Serveur léger et déploiement d'applications
@@ -173,7 +173,7 @@ Active ce workflow quand l'utilisateur demande de :
 
 ### Scène 7 : COS — stockage objet, médias, base de connaissances
 **Déclencheurs :** COS, bucket, objet, upload, image processing, CI
-**Skill :** `tencent-cos-skill`
+**Skill :** `tencent-cloud-cos`
 **Livrables :** opérations COS, liens signature, résultats traitement fichiers, alertes coût
 
 ### Scène 8 : Livraison fichiers et cloud personnel
@@ -183,12 +183,12 @@ Active ce workflow quand l'utilisateur demande de :
 
 ### Scène 9 : OCR — reconnaissance de texte dans les images
 **Déclencheurs :** OCR, reconnaissance texte, image → texte, capture, poster
-**Skill :** `tencentcloud-ocr`
+**Skill :** `tencentcloud-ocr-generalaccurate`
 **Livrables :** texte reconnu, coordonnées zones, confiance
 
 ### Scène 10 : ASR — transcription audio
 **Déclencheurs :** ASR, transcription, audio → texte, sous-titres, vocal, meeting
-**Skill :** `tencentcloud-asr`
+**Skill :** `asr-sentence-recognition`
 **Livrables :** texte transcrit, sous-titres, timestamps, segments
 
 ## Règles d'or

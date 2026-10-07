@@ -148,3 +148,106 @@ When the user attaches a poster / ad / screenshot:
 
 - `scripts/crop-photo-round.py` — Crop a portrait photo into a circle with
   a configurable colored border, output PNG.
+
+### 3. Photo Embedding
+
+Two reliable approaches. Prefer **method A (base64)** — it has zero path
+resolution issues and works even when Chrome's sandbox blocks file:///.
+
+#### Method A — Base64 Data URI (preferred)
+
+- **Round crop the photo** with Python PIL/Pillow (circle mask, 180×180 px
+  for CV sidebar, 354×354 for larger placement):
+  ```python
+  from PIL import Image, ImageDraw
+  import io, base64
+
+  img = Image.open("photo.jpg").convert("RGBA")
+  size = min(img.size)
+  left = (img.width - size) // 2
+  top = (img.height - size) // 2
+  img_sq = img.crop((left, top, left + size, top + size))
+
+  mask = Image.new("L", (size, size), 0)
+  ImageDraw.Draw(mask).ellipse((0, 0, size, size), fill=255)
+  result = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+  result.paste(img_sq, (0, 0), mask)
+  result = result.resize((180, 180), Image.LANCZOS)
+
+  buf = io.BytesIO()
+  result.save(buf, format="PNG")
+  b64 = base64.b64encode(buf.getvalue()).decode()
+  ```
+- **Embed directly in HTML** as a data URI (no file paths needed):
+  ```html
+  <img src="data:image/png;base64,B64_STRING" alt="Photo">
+  ```
+- **For border styling**, use CSS on the img element instead of compositing:
+  ```css
+  .photo-container img {
+    border-radius: 50%;
+    border: 2.5px solid #C9A227;
+    object-fit: cover;
+  }
+  ```
+- **Inject the base64 string** into the HTML after writing it:
+  ```python
+  html = open("cv.html").read().replace("B64_PLACEHOLDER", b64)
+  open("cv.html", "w").write(html)
+  ```
+
+#### Method B — file:/// URL (fallback if base64 is too large)
+
+- **Copy the image into `/tmp/` alongside the HTML** when rendering, then
+  use a relative path in a temp copy to avoid cross-origin issues:
+  ```bash
+  cp /home/user/photo.png /tmp/photo.png
+  sed -i 's|file:///home/user/photo.png|photo.png|g' /tmp/cv.html
+  google-chrome --headless --print-to-pdf=out.pdf file:///tmp/cv.html
+  ```
+
+### 5. PDF Generation Command
+
+```bash
+google-chrome --headless --no-sandbox --disable-gpu \
+  --print-to-pdf=/path/to/output.pdf \
+  /absolute/path/to/document.html
+```
+
+- Use `--no-sandbox` in container/VM environments.
+- Use an absolute path for the input HTML (relative paths may confuse
+  headless Chrome).
+- No additional flags needed for UTF-8 as long as the HTML file is
+  genuinely UTF-8 encoded.
+- **Always verify after generation**:
+  ```bash
+  pdfinfo /path/to/output.pdf | grep -E "Pages|Page size|File size"
+  ```
+
+## Common Pitfalls
+
+1. **Accents missing in PDF** → The HTML file was not saved as UTF-8, or
+   the accents were typed as bare ASCII in the source. Fix: write the file
+   with `write_file` (handles UTF-8 natively) and verify with `read_file`.
+2. **Photo not showing in PDF with file:///** → Chrome headless blocks
+   `file:///` cross-origin image loads. Fix: use base64 data URI instead,
+   or copy the image next to the HTML in `/tmp/` and use a relative path.
+3. **PDF overflows to 2 pages** → Did not compact enough. Reduce padding
+   and font sizes further, or trim content.
+4. **Name hyphenation** → If the user says "tirets inutiles", remove them
+   immediately from the HTML title and all headings.
+5. **ImageMagick `convert` fails with "Unrecognized option (-alpha)"** →
+   Do not use ImageMagick for photo processing. Use Python Pillow directly
+   via `execute_code` — it handles alpha channels and circular masks
+   correctly.
+6. **Python script times out (exit code 124)** → When processing large
+   photos (>500 KB), use `execute_code` with inline Pillow code instead of
+   shelling out to a standalone script. Inline code runs faster and avoids
+   subprocess overhead.
+7. **Session interruption mid-stream** → Save the HTML file BEFORE
+   attempting PDF conversion. The HTML is the source of truth; if
+   interrupted, you can resume by regenerating the PDF from the saved HTML
+   + photo base64.
+8. **Base64 string too large for HTML** → For large source photos (>200 KB),
+   reduce the circular output resolution to 120-150 px before encoding.
+   Display size on A4 is ~32 mm (~120 px at 96 DPI).

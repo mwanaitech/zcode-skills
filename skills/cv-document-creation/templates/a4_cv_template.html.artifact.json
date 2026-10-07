@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "zcode-skills/skills/cv-document-creation/templates/a4_cv_template.html",
+  "entry": "zcode-skills/skills/cv-document-creation/templates/a4_cv_template.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-28T11:29:53.733Z",
+  "updatedAt": "2026-09-28T11:29:53.733Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

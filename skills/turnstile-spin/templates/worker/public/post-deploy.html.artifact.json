@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "zcode-skills/agent-skills/turnstile-spin/templates/worker/public/post-deploy.html",
+  "entry": "zcode-skills/agent-skills/turnstile-spin/templates/worker/public/post-deploy.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-28T11:29:43.261Z",
+  "updatedAt": "2026-09-28T11:29:43.261Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

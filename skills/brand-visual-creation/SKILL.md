@@ -88,3 +88,20 @@ Deliver final file to user as MEDIA.
 
 ## Verification
 After compositing, run `gm identify final.png` to confirm dimensions and colour depth before delivery.
+
+### FLUX 2 Klein — Text Rendering Limits (Posters & Text-Heavy Visuals)
+
+FLUX 2 Klein (the FAL.ai backend) **cannot render text accurately** on posters or any image with multiple text elements. This is a model-architecture limitation, not a prompt-quality issue. Rules:
+
+1. **Long paragraphs always hallucinate.** A 30+ word sentence (e.g. a manifesto paragraph) will produce invented words, corrupted spelling, and shifted dates across ALL iterations — the error surface shifts but never converges to zero. **Do not attempt long text in FLUX.** Use the hybrid approach instead (see below).
+
+2. **Short text (3-5 words) can work**, but even then expect occasional letter substitutions, date corruption (e.g. 2026 → 2066 or 2016), repeated words, and invented filler. Explicit negative prompts for every known failure mode (`NOT "Afiaque" NOT "TECNOLOGIE" NOT "2066"`) reduce but do not eliminate errors.
+
+3. **Multiple iterations do not converge.** Re-running a corrected prompt never reaches 100% text accuracy — new errors appear in different places each run. Iteration 5 had different errors than iteration 1, not fewer errors overall.
+
+4. **Hybrid approach (recommended for text-heavy posters):**
+   - Generate the **background base** with FLUX (texture, colors, shapes, composition, minimal text or text-free).
+   - Add/overlay text via GraphicsMagick (`gm convert -draw "text ..."`), HTML/CSS rendering, or an image editor.
+   - The HTML/CSS prototype route achieves exact text control with the same artisanal aesthetic.
+
+5. **When you must include text in a FLUX prompt**, keep it to ≤5 words per element, ≤3 text elements total, spell every word explicitly in the prompt, and warn the user about expected imperfections before generating.

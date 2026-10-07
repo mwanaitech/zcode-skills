@@ -42,12 +42,31 @@ Feature flag service for controlling feature visibility without redeploying code
 | Design targeting rules & rollouts | `patterns.md` → `gotchas.md` |
 | Debug flag evaluation issues | `gotchas.md` → `api.md` |
 
+REST API note: management endpoints use Cloudflare v4 envelopes (`result`, `result_info`, `errors`) and snake_case fields. The `/evaluate` endpoint is the exception: it is not enveloped and returns OpenFeature-style camelCase.
+
 ## In This Reference
 
 - **[api.md](./api.md)** — REST API endpoints, binding methods, OpenFeature SDK, schemas
 - **[configuration.md](./configuration.md)** — Wrangler binding setup, SDK installation, TypeScript types
 - **[patterns.md](./patterns.md)** — Flag CRUD via API, targeting rules, rollouts, OpenFeature usage
 - **[gotchas.md](./gotchas.md)** — Common errors, limits, anti-patterns, troubleshooting
+
+## See Also
+
+- **[Flagship API reference](https://developers.cloudflare.com/api/resources/flagship/)** — Source of truth for REST API paths, envelopes, and response fields
+- **[../workers/](../workers/)** — Workers runtime (Flagship runs inside Workers)
+- **[../kv/](../kv/)** — KV storage (Flagship uses KV infrastructure for flag delivery)
+- **[../wrangler/](../wrangler/)** — Wrangler CLI for deployment and config
+
+## Reading Order
+
+| Task | Read |
+|------|------|
+| Set up Flagship in a Worker | `configuration.md` → `api.md` |
+| Evaluate flags in code | `configuration.md` → `patterns.md` |
+| Manage flags via REST API | `api.md` → `patterns.md` |
+| Design targeting rules & rollouts | `patterns.md` → `gotchas.md` |
+| Debug flag evaluation issues | `gotchas.md` → `api.md` |
 
 ## See Also
 

@@ -1,5 +1,5 @@
 ---
-name: SunPump Meme Token Toolkit
+name: sunpump-meme-token-toolkit
 description: Create meme tokens on SunPump (`sun sunpump launch`), trade them — both pre-launch (bonding curve via `sun sunpump buy/sell`) and post-launch (SunSwap via `sun swap`) — and query token info, rankings, holders, portfolios, and trade history.
 version: 1.3.1
 dependencies:

@@ -76,7 +76,7 @@ Ce skill orchestre les skills suivants si présents :
 - `project-code-standard` — vérification des normes de codage et auto-fix
 - `security-auditor` — audit sécurité (credentials, CVE, OWASP)
 - `clean-code-review` — validation principes KISS/DRY/YAGNI/SOLID
-- `cody` — générateur de rapport de review structuré en chinois
+- `code-review-assistant` — générateur de rapport de review structuré en chinois
 
 ## Workflow complet en 6 étapes
 

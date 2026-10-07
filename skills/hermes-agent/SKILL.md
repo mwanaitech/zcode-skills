@@ -294,7 +294,7 @@ The registry of record is `hermes_cli/commands.py` — every consumer
 /config              Show config (CLI)
 /model [name]        Show or change model
 /personality [name]  Set personality
-/reasoning [level]   Set reasoning (none|minimal|low|medium|high|xhigh|show|hide)
+/reasoning [level]   Set reasoning (none|minimal|low|medium|high|xhigh|max|ultra|show|hide)
 /verbose             Cycle: off → new → all → verbose
 /voice [on|off|tts]  Voice mode
 /yolo                Toggle approval bypass
@@ -552,10 +552,10 @@ hermes config set privacy.redact_pii false   # disable (default)
 
 ### Command approval prompts
 
-By default (`approvals.mode: manual`), Hermes prompts the user before running shell commands flagged as destructive (`rm -rf`, `git reset --hard`, etc.). The modes are:
+By default (`approvals.mode: smart`), Hermes asks an auxiliary LLM to assess shell commands flagged as destructive (`rm -rf`, `git reset --hard`, etc.). The modes are:
 
-- `manual` — always prompt (default)
-- `smart` — use an auxiliary LLM to auto-approve low-risk commands, prompt on high-risk
+- `smart` — auto-approve a low-risk command once, deny high-risk commands, and prompt when uncertain (default)
+- `manual` — always prompt
 - `off` — skip all approval prompts (equivalent to `--yolo`)
 
 ```bash
@@ -1109,3 +1109,40 @@ Types: `fix:`, `feat:`, `refactor:`, `docs:`, `chore:`
 - Use `get_hermes_home()` from `hermes_constants` for all paths (profile-safe)
 - Config values go in `config.yaml`, secrets go in `.env`
 - New tools need a `check_fn` so they only appear when requirements are met
+
+### Configuration
+```
+/config              Show config (CLI)
+/model [name]        Show or change model
+/personality [name]  Set personality
+/reasoning [level]   Set reasoning (none|minimal|low|medium|high|xhigh|show|hide)
+/verbose             Cycle: off → new → all → verbose
+/voice [on|off|tts]  Voice mode
+/yolo                Toggle approval bypass
+/busy [sub]          Control what Enter does while Hermes is working (CLI)
+                     (subcommands: queue, steer, interrupt, status)
+/indicator [style]   Pick the TUI busy-indicator style (CLI)
+                     (styles: kaomoji, emoji, unicode, ascii)
+/footer [on|off]     Toggle gateway runtime-metadata footer on final replies
+/skin [name]         Change theme (CLI)
+/statusbar           Toggle status bar (CLI)
+```
+
+### Command approval prompts
+
+By default (`approvals.mode: manual`), Hermes prompts the user before running shell commands flagged as destructive (`rm -rf`, `git reset --hard`, etc.). The modes are:
+
+- `manual` — always prompt (default)
+- `smart` — use an auxiliary LLM to auto-approve low-risk commands, prompt on high-risk
+- `off` — skip all approval prompts (equivalent to `--yolo`)
+
+```bash
+hermes config set approvals.mode smart       # recommended middle ground
+hermes config set approvals.mode off         # bypass everything (not recommended)
+```
+
+Per-invocation bypass without changing config:
+- `hermes --yolo …`
+- `export HERMES_YOLO_MODE=1`
+
+Note: YOLO / `approvals.mode: off` does NOT turn off secret redaction. They are independent.

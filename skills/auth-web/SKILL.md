@@ -1,5 +1,5 @@
 ---
-name: auth-web-cloudbase
+name: auth-web
 description: CloudBase Web Authentication Quick Guide for frontend integration after auth-tool has already been checked. Provides concise and practical Web authentication solutions with multiple login methods and complete user management.
 version: 2.23.2
 alwaysApply: false

@@ -106,8 +106,8 @@ Active ce workflow quand l'utilisateur demande :
 ## Dépendances (skills SkillHub installés)
 
 Ce skill orchestre les skills suivants si présents :
-- `ah-api-designer` — conception API REST/GraphQL, modélisation ressources, OpenAPI draft
-- `sovereign-api-docs-generator` — génération auto de docs depuis le code (REST/GraphQL/WebSocket)
+- `api-designer` — conception API REST/GraphQL, modélisation ressources, OpenAPI draft
+- `api-documentation-generator` — génération auto de docs depuis le code (REST/GraphQL/WebSocket)
 - `api-dev` — développement, test curl, intégration, mock, validation OpenAPI
 - `api-doc-writer` — rédaction documentation API structurée (descriptions, auth, quickstart)
 - `qa-api-tester` — construction requêtes, génération curl, données mock, validation

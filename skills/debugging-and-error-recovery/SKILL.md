@@ -313,3 +313,49 @@ After fixing a bug:
 - [ ] All existing tests pass
 - [ ] Build succeeds
 - [ ] The original bug scenario is verified end-to-end
+
+### Native Binary Corruption (SIGBUS / SIGSEGV / Core Dump)
+
+When a Node.js native binary crashes with `Bus error (core dumped)` or `exit 135`:
+
+```
+Bus error / SIGBUS during build or runtime:
+├── Does ldd on the .node binary crash with exit 135?
+│   └── YES → The binary file is truncated/corrupted
+│       ├── Verify with: ldd <path/to/next-swc.linux-x64-gnu.node>
+│       ├── Check segment integrity: readelf -l <binary> | head -40
+│       │   └── If a LOAD segment's filesz extends beyond the file size
+│       │       → The download was truncated (memory/page mapping fails)
+│       └── Compare file size vs expected: the .node file should be ~130MB
+│           for SWC; a truncated download may be ~49MB or ~112MB
+├── Does npm install fail with exit 217?
+│   └── Check NODE_OPTIONS for problematic flags
+│       ├── echo $NODE_OPTIONS
+│       ├── Trailing --eval or --require flags block native binaries
+│       └── Workaround: env -i bash -c 'cd <project> && <command>'
+├── Is the npm cache corrupted?
+│   ├── npm ERR! ENOENT: /home/.../_cacache/content-v2/...  → cache corruption
+│   ├── npm cache clean --force
+│   └── If npm still fails → skip npm, use direct curl download
+└── Fix: re-download the package directly
+    ├── curl -L --max-time 300 -o /tmp/pkg.tgz \
+    │   "https://registry.npmjs.org/@scope/package/-/package-version.tgz"
+    ├── mkdir -p node_modules/@scope/package
+    ├── tar -xzf /tmp/pkg.tgz -C node_modules/@scope/package --strip-components=1
+    ├── Verify: ldd node_modules/@scope/package/*.node  → exit 0
+    └── Then run npm install (rest of deps) or build directly
+```
+
+**Common causes of truncated native binaries:**
+- Slow network (< 500 KB/s) causing npm downloads to timeout before completion
+- npm cache corruption leaving incomplete tarballs
+- npm's 300-second default fetch timeout, which is insufficient for ~130MB packages on slow connections
+
+**Prevention:** Use `curl` with explicit `--max-time` for large binary packages. The npm registry URL pattern is `https://registry.npmjs.org/@<scope>/<package>/-/<package>-<version>.tgz`.
+
+## Reference Files
+
+- `references/swc-binary-corruption.md` — Full diagnostic/repair guide for
+  corrupted SWC native binary in Next.js (SIGBUS/Bus error/coredump).
+  Covers ldd-based diagnosis, readelf truncation detection, NODE_OPTIONS
+  contamination workaround, and direct curl download + manual extraction.

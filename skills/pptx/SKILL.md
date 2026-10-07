@@ -245,3 +245,53 @@ pdftoppm -jpeg -r 150 -f N -l N output.pdf slide-fixed
 - `npm install -g pptxgenjs` - creating from scratch
 - LibreOffice (`soffice`) - PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
 - Poppler (`pdftoppm`) - PDF to images
+
+## Creating with `python-pptx` (Python)
+
+Use when you prefer a Python-native creation path, need to preserve uniform timestamps (all slides created in a single interpreter run share identical creation/modification dates), or when `pptxgenjs` is unavailable.
+
+### Quick start
+
+```python
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.dml.color import RGBColor
+from pptx.enum.text import PP_ALIGN
+
+prs = Presentation()
+prs.slide_width = Inches(13.333)
+prs.slide_height = Inches(7.5)
+blank_layout = prs.slide_layouts[6]   # truly blank (see Pitfall below)
+slide = prs.slides.add_slide(blank_layout)
+prs.save("output.pptx")
+```
+
+### Filling backgrounds and shapes
+
+```python
+
+# Slide background
+slide.background.fill.solid()
+slide.background.fill.fore_color.rgb = RGBColor(240, 240, 240)
+
+# Shape fill + border removal
+shape.fill.solid()
+shape.fill.fore_color.rgb = RGBColor(44, 62, 80)
+shape.line.fill.background()          # removes outline
+```
+
+### Common AutoShape types
+
+| `shape_type` | Shape |
+|-------------|-------|
+| `1` | Rectangle |
+| `5` | Right triangle |
+| `9` | Oval / circle |
+
+### Pitfalls
+
+- **Blank layout is index 6, not 5.** Index 5 (`TITLE_ONLY`) contains a title placeholder that cannot be removed. Use index 6 (`PHOTO`) for a completely empty slide.
+- **Missing `pip` in sandboxed venv.** If the active Python interpreter lacks `pip`, check `/usr/bin/python3` for a system-wide `python-pptx` installation, or install via the system `pip` into user or site-packages and invoke with the system interpreter.
+- **Shape borders default to a thin line.** Call `shape.line.fill.background()` to eliminate the outline on decorative rectangles, bands, or bars.
+
+---

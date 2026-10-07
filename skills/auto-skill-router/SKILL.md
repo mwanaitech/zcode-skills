@@ -120,7 +120,7 @@ Quand tu reçois un prompt via `/router`, exécute ce raisonnement :
 | « Help pour mon devoir » | `general` | Ambigu, pas de domaine clair → fallback |
 | « Analyse ce malware » | `security-architect` | Domaine=security + objet=malware |
 | « Build a landing page » | `frontend-developer` | Verbe=build + objet=landing page → dev web |
-| « Conseil pour un contrat » | `legal-advisor` | Domaine=juridique + objet=contrat |
+| « Conseil pour un contrat » | `legal-advisor-bilingual-enhanced-edition` | Domaine=juridique + objet=contrat |
 
 ---
 

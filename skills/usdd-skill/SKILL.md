@@ -1,5 +1,5 @@
 ---
-name: USDD / JUST Protocol
+name: usdd-just-protocol
 description: USDD stablecoin operations — PSM swaps (buyGem/sellGem), vault position queries, and balance checks via the JUST Protocol on TRON.
 version: 1.0.0
 dependencies:

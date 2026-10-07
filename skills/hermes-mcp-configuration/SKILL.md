@@ -1,7 +1,7 @@
 ---
 name: hermes-mcp-configuration
 title: Hermes MCP Configuration
-description: 'Configure, install, and troubleshoot MCP (Model Context Protocol) servers in Hermes Agent. Covers: finding servers, installation methods (pipx/npx/uvx), config setup via hermes config set mcp_servers.*, environment variables in .env, verification with hermes mcp list, and common pitfalls (PEP 668 on Debian/Ubuntu/Linux Mint, archived repos, corrupt frontmatter).'
+description: 'Configure, install, and troubleshoot MCP (Model Context Protocol) servers in Hermes Agent. Covers: finding servers, installation methods (pipx/npx/uvx), config setup via hermes config set platforms.*, environment variables in .env, verification with hermes mcp list, and common pitfalls (PEP 668 on Debian/Ubuntu/Linux Mint, archived repos, corrupt frontmatter, JSON-string args).'
 tags:
   - hermes
   - mcp
@@ -12,6 +12,7 @@ tags:
 related_skills:
   - agent-fleet-deployment
 ---
+
 # Hermes MCP Configuration
 
 ## When to use
@@ -71,25 +72,27 @@ The server runs in a container. Configure with `command: docker` and proper args
 
 ### Phase 3: Configure in Hermes config
 
+MCP servers live under `platforms:` in `~/.hermes/config.yaml`. The `hermes config set` command accepts `platforms.<name>` (or the alias `mcp_servers.<name>`).
+
 ```bash
 # For command-based servers (stdio transport):
-hermes config set mcp_servers.<server-name>.command <binary-or-runtime>
-hermes config set mcp_servers.<server-name>.args '<json-array-of-args>'
-hermes config set mcp_servers.<server-name>.enabled true
+hermes config set platforms.<server-name>.command <binary-or-runtime>
+hermes config set platforms.<server-name>.args '<json-array-of-args>'
+hermes config set platforms.<server-name>.enabled true
 hermes config set mcp_servers.<server-name>.description "What it does"
 
 # Example for npx-based servers:
-hermes config set mcp_servers.hyperbrowser.command npx
-hermes config set mcp_servers.hyperbrowser.args '["-y","hyperbrowser-mcp"]'
-hermes config set mcp_servers.hyperbrowser.enabled true
+hermes config set platforms.hyperbrowser.command npx
+hermes config set platforms.hyperbrowser.args '
+hermes config set platforms.hyperbrowser.enabled true
 
 # Example for pipx-installed binary:
-hermes config set mcp_servers.office-word.command word_mcp_server
-hermes config set mcp_servers.office-word.enabled true
+hermes config set platforms.office-word.command word_mcp_server
+hermes config set platforms.office-word.enabled true
 
 # For URL-based servers (SSE transport):
-hermes config set mcp_servers.server-name.url https://example.com/mcp
-hermes config set mcp_servers.server-name.enabled true
+hermes config set platforms.server-name.url https://example.com/mcp
+hermes config set platforms.server-name.enabled true
 ```
 
 ### Phase 4: Add API keys to .env
@@ -245,6 +248,82 @@ When patching files that contain French text, the accented characters may differ
 If a key already exists, `hermes config set` adds another entry rather than replacing. For MCP servers, this means you may see duplicate entries. To avoid, edit `config.yaml` directly for complex structures, or use `hermes config set` only for simple flat keys.
 
 ## MCP Server Types
+
+### stdio (command-line) servers
+The server binary/script runs as a subprocess, communicating via stdin/stdout. Configured with `command` + `args`.
+
+```yaml
+platforms:
+  example:
+    command: some-binary
+    args: ["--flag", "value"]
+    enabled: true
+```
+
+### SSE (HTTP) servers
+The server runs as an HTTP endpoint. Configured with a `url`.
+
+```yaml
+platforms:
+  example:
+    url: https://mcp.example.com
+    enabled: true
+```
+
+### Docker servers
+The server runs in a Docker container. Configured with `command: docker`.
+
+```yaml
+platforms:
+  example:
+    command: docker
+    args: ["run", "-i", "ghcr.io/org/mcp-server"]
+    enabled: true
+```
+
+## Quick-reference checklist
+
+| Step | Command |
+|------|---------|
+| List current servers | `hermes mcp list` |
+| Install Python MCP server | `pipx install <package>` |
+| Add stdio server config | `hermes config set platforms.<name>.command <binary>` |
+| Add URL-based server | `hermes config set platforms.<name>.url <url>` |
+| Enable server | `hermes config set platforms.<name>.enabled true` |
+| Add env var | `echo "KEY=value" >> ~/.hermes/.env` |
+| Set args | `hermes config set platforms.<name>.args '[]'` |
+
+## References
+
+See `references/` for specifics and deployment notes about individual MCP servers configured in this Hermes environment.
+- `references/mcp-connectivity-testing.md` — Verification de connectivite MCP sur transport HTTP/SSE. Workflow en 5 etapes : processus -> port -> curl -> tools/list -> tools/call. Reconnaissance du format SSE event-stream, extraction du payload JSON, tableau des codes reponse.
+- `references/opencode-mcp-setup.md` — Config MCP dans OpenCode CLI (format JSONC, differences avec Hermes, validation).
+- `references/desktop-app-mcp-extraction.md` — Extraction de configuration MCP depuis des applications desktop Electron/AppImage/ToDesktop (Paper.design, Obsidian, etc.). Decouverte du port, extraction ASAR, authentification OAuth vs Bearer token, configuration Hermes.
+- `scripts/verify-paper-mcp.sh` — Script de vérification rapide pour Paper Desktop déjà installé (processus, port, handshake, outils, fichier ouvert).
+
+### Phase 3: Configure in Hermes config
+
+```bash
+
+# For command-based servers (stdio transport):
+hermes config set mcp_servers.<server-name>.command <binary-or-runtime>
+hermes config set mcp_servers.<server-name>.args '<json-array-of-args>'
+hermes config set mcp_servers.<server-name>.enabled true
+hermes config set mcp_servers.<server-name>.description "What it does"
+
+# Example for npx-based servers:
+hermes config set mcp_servers.hyperbrowser.command npx
+hermes config set mcp_servers.hyperbrowser.args '["-y","hyperbrowser-mcp"]'
+hermes config set mcp_servers.hyperbrowser.enabled true
+
+# Example for pipx-installed binary:
+hermes config set mcp_servers.office-word.command word_mcp_server
+hermes config set mcp_servers.office-word.enabled true
+
+# For URL-based servers (SSE transport):
+hermes config set mcp_servers.server-name.url https://example.com/mcp
+hermes config set mcp_servers.server-name.enabled true
+```
 
 ### stdio (command-line) servers
 The server binary/script runs as a subprocess, communicating via stdin/stdout. Configured with `command` + `args`.

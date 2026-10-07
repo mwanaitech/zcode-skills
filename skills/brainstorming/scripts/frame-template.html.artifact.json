@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "zcode-skills/skills/brainstorming/scripts/frame-template.html",
+  "entry": "zcode-skills/skills/brainstorming/scripts/frame-template.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-28T11:29:50.058Z",
+  "updatedAt": "2026-09-28T11:29:50.058Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}
