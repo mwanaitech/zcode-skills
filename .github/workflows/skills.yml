@@ -1,0 +1,43 @@
+name: skills
+
+# Les skills sont charges par Freebuff depuis ~/.agents/skills ou <projet>/.agents/skills,
+# sur un seul niveau. skills/ et agent-skills/ sont les sources depuis lesquelles ce
+# miroir est construit : une duplication qui y revient se traduit par un skill ecrase
+# ou rejete au chargement. Ce workflow verrouille les invariants issus de la
+# deduplication des doublons.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  invariants:
+    name: Invariants des skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # Aucune installation : le verificateur n'utilise que les modules natifs.
+      - name: Verifier les invariants
+        run: node tools/verify-skills.js
+
+      # Les repertoires vides et les doublons de premier niveau sont bloquants ;
+      # le rapport complet (defauts herites, non bloquants) est deja affiche.
+      - name: Verifier l'absence de repertoire vide
+        run: |
+          vides=$(find skills agent-skills -type d -empty)
+          if [ -n "$vides" ]; then
+            echo "::error::repertoires vides detectes :"
+            echo "$vides"
+            exit 1
+          fi
+          echo "OK : aucun repertoire vide"
